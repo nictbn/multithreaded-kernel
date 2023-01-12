@@ -12,4 +12,10 @@ QEMU:\
 NASM:\
 ```sudo apt install nasm```\
 
-## Useful resources
+## Useful commands
+Generating a binary from an assembly file:\
+```nasm -f bin ./boot.asm -o ./boot.bin```\
+Disassembling a binary file:\
+```qemu-system-x86_64 -hda ./boot.bin```\
+Loading a binary into QEMU:\
+```qemu-system-x86_64 -hda ./boot.bin```
