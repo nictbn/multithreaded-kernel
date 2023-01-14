@@ -34,3 +34,4 @@ Debugging:\
 
 ## Useful resources
 [Protected mode](https://wiki.osdev.org/Protected_Mode)
+[Enabling the A20 Line](https://wiki.osdev.org/A20_Line)
