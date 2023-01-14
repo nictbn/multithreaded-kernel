@@ -1,0 +1,2 @@
+protected-mode/bin/*.bin
+protected-mode/build/*.o
