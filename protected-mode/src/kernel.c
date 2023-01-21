@@ -35,14 +35,20 @@ void terminal_initialize() {
 
 size_t strlen(const char* str) {
     size_t len = 0;
-    while(str[len]) {
+    while (str[len]) {
         len++;
     }
     return len;
 }
 
+void print(const char* str) {
+    size_t len = strlen(str);
+    for (int i = 0; i < len; i++) {
+        terminal_write_char(str[i], 15);
+    }
+}
+
 void kernel_main() {
     terminal_initialize();
-    terminal_write_char('A', 15);
-    terminal_write_char('B', 15);
+    print("Hello World!");
 }
