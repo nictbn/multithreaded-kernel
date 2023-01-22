@@ -21,7 +21,7 @@ static bool heap_validate_alignment(void* ptr) {
 int heap_create(struct heap* heap, void* datapool_ptr, void* heap_end, struct heap_table* table) {
     int res = 0;
 
-    if (!heap_validate_alignment(datapool_ptr) || heap_validate_alignment(heap_end)) {
+    if (!heap_validate_alignment(datapool_ptr) || !heap_validate_alignment(heap_end)) {
         res = -EINVARG;
         return res;
     }

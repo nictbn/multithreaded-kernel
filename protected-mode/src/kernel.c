@@ -3,6 +3,7 @@
 #include <stddef.h>
 #include "idt/idt.h"
 #include "io/io.h"
+#include "memory/heap/kheap.h"
 
 
 uint16_t* video_mem = 0;
@@ -62,16 +63,16 @@ void kernel_main() {
     terminal_initialize();
     print("Hello World!\ntest");
 
-    // // initialize the heap
-    // kheap_init();
+    // initialize the heap
+    kheap_init();
 
     // initialize the interrupt descriptor table
     idt_init();
     
-    // void* ptr = kmalloc(50);
-    // void* ptr2 = kmalloc(5000);
+    void* ptr = kmalloc(50);
+    void* ptr2 = kmalloc(5000);
 
-    // if (ptr || ptr2) {
-    //     // just so that the compiler does not throw unused variable error
-    // }
+    if (ptr || ptr2) {
+        // just so that the compiler does not throw unused variable error
+    }
 }
