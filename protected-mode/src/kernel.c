@@ -4,6 +4,7 @@
 #include "idt/idt.h"
 #include "io/io.h"
 
+
 uint16_t* video_mem = 0;
 uint16_t terminal_row = 0;
 uint16_t terminal_col = 0;
@@ -61,7 +62,16 @@ void kernel_main() {
     terminal_initialize();
     print("Hello World!\ntest");
 
+    // // initialize the heap
+    // kheap_init();
+
     // initialize the interrupt descriptor table
     idt_init();
     
+    // void* ptr = kmalloc(50);
+    // void* ptr2 = kmalloc(5000);
+
+    // if (ptr || ptr2) {
+    //     // just so that the compiler does not throw unused variable error
+    // }
 }
