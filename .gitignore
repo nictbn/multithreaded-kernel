@@ -1,2 +1,5 @@
 protected-mode/bin/*.bin
 protected-mode/build/*.o
+protected-mode/build/ldt/*.o
+protected-mode/build/ldt/*.o
+protected-mode/build/memory/*.o
