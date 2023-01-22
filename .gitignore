@@ -2,3 +2,4 @@ protected-mode/bin/*.bin
 protected-mode/build/*.o
 protected-mode/build/idt/*.o
 protected-mode/build/memory/*.o
+protected-mode/build/io/*.o
