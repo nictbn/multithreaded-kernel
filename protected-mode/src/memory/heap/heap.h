@@ -20,4 +20,5 @@ struct heap {
 
     void* saddr;
 };
+int heap_create(struct heap* heap, void* datapool_ptr, void* heap_end, struct heap_table* table);
 #endif
