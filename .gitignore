@@ -4,3 +4,4 @@ protected-mode/build/idt/*.o
 protected-mode/build/memory/*.o
 protected-mode/build/io/*.o
 protected-mode/build/memory/heap/*.o
+protected-mode/build/memory/paging/*.o

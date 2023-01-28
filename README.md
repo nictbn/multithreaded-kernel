@@ -36,10 +36,11 @@ Debugging:\
 ## Useful resources
 [Protected mode](https://wiki.osdev.org/Protected_Mode)\
 [Enabling the A20 Line](https://wiki.osdev.org/A20_Line)\
-[Setting up a cross-compiler](https://wiki.osdev.org/GCC_Cross-Compiler)
-[ATA PIO MODE](https://wiki.osdev.org/ATA_PIO_Mode)
-[Interrupt descriptor table](https://wiki.osdev.org/Interrupt_Descriptor_Table)
-[x86 Memory Map] (https://wiki.osdev.org/Memory_Map_(x86))
+[Setting up a cross-compiler](https://wiki.osdev.org/GCC_Cross-Compiler)\
+[ATA PIO MODE](https://wiki.osdev.org/ATA_PIO_Mode)\
+[Interrupt descriptor table](https://wiki.osdev.org/Interrupt_Descriptor_Table)\
+[x86 Memory Map](https://wiki.osdev.org/Memory_Map_(x86))\
+[Paging](https://wiki.osdev.org/Paging)
 
 ## Steps for setting up your own cross compiler
 1. install the dependencies outlined [here](https://wiki.osdev.org/GCC_Cross-Compiler#:~:text=CLooG%20(optional)-,Installing%20Dependencies,-%E2%86%93%20Dependency%20/%20OS%20%E2%86%92) in accordance with your OS
@@ -71,4 +72,12 @@ make all-gcc
 make all-target-libgcc
 make install-gcc
 make install-target-libgcc
+```
+
+6. To run the kernel:
+```
+cd protected-mode
+make clean
+./build.sh
+qemu-system-i386 -hda ./bin/os.bin
 ```
