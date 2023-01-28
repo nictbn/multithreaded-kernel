@@ -27,7 +27,6 @@ mov ds, ax
     mov al, 00000001b
     out 0x21, al
     ; Finish remapping the master PIC
-    sti
     call kernel_main
     jmp $
 
