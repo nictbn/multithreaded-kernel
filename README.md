@@ -81,3 +81,29 @@ make clean
 ./build.sh
 qemu-system-i386 -hda ./bin/os.bin
 ```
+
+7. To debug the kernel:
+```
+cd protected-mode
+make clean
+./build.sh
+cd bin
+gdb
+add-symbol-file ../build/kernelfull.o 0x100000
+```
+At this point you would set breakoints. E.g.:
+```
+break kernel.c:98
+```
+Then:
+```
+target remote | qemu-system-i386 -hda ./os.bin -S -gdb stdio
+```
+Then press c to run the program until it reaches your first breakpoint. To go to the next instruction use:
+```
+next
+```
+To print a variable's value, use:
+```
+print variable
+```
