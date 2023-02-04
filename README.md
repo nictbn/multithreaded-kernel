@@ -40,8 +40,8 @@ Debugging:\
 [ATA PIO MODE](https://wiki.osdev.org/ATA_PIO_Mode)\
 [Interrupt descriptor table](https://wiki.osdev.org/Interrupt_Descriptor_Table)\
 [x86 Memory Map](https://wiki.osdev.org/Memory_Map_(x86))\
-[Paging](https://wiki.osdev.org/Paging)
-
+[Paging](https://wiki.osdev.org/Paging)\
+[The FAT16 Filesystem](https://en.wikipedia.org/wiki/Design_of_the_FAT_file_system)
 ## Steps for setting up your own cross compiler
 1. install the dependencies outlined [here](https://wiki.osdev.org/GCC_Cross-Compiler#:~:text=CLooG%20(optional)-,Installing%20Dependencies,-%E2%86%93%20Dependency%20/%20OS%20%E2%86%92) in accordance with your OS
 2. Extract binutils 2.35 from [here](https://ftp.gnu.org/gnu/binutils/binutils-2.35.tar.gz) into $HOME/src
