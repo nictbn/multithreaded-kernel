@@ -19,6 +19,7 @@ enum {
 };
 
 struct disk;
+struct part_path;
 typedef void*(*FS_OPEN_FUNCTION)(struct disk* disk, struct part_path* path, FILE_MODE mode);
 typedef int (*FS_RESOLVE_FUNCTION)(struct disk* disk);
 
