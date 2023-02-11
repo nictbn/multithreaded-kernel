@@ -8,3 +8,4 @@ protected-mode/build/memory/paging/*.o
 protected-mode/build/disk/*.o
 protected-mode/build/string/*.o
 protected-mode/build/fs/*.o
+protected-mode/build/fs/fat/*.o
