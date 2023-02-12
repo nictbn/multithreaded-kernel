@@ -67,7 +67,7 @@ struct fat_directory_item {
     uint8_t attribute;
     uint8_t reserved;
     uint8_t creation_time_tenths_of_a_sec;
-    uint16_t creatin_time;
+    uint16_t creation_time;
     uint16_t creation_date;
     uint16_t last_access;
     uint16_t high_16_bits_first_cluster;
@@ -138,10 +138,6 @@ int fat16_get_total_items_for_directory(struct disk* disk, uint32_t directory_st
     int directory_start_pos = directory_start_sector * disk->sector_size;
     struct disk_stream* stream = fat_private->directory_stream;
     if (diskstreamer_seek(stream, directory_start_pos) != OS_ALL_OK) {
-        return -EIO;
-    }
-
-    if (diskstreamer_read(stream, &item, sizeof(item)) != OS_ALL_OK) {
         return -EIO;
     }
 
@@ -264,9 +260,6 @@ void fat16_get_full_relative_filename(struct fat_directory_item* item, char* out
         fat16_to_proper_string(&out_tmp, (const char*) item->ext);
     }
 }
-
-
-
 
 struct fat_directory_item* fat16_clone_directory_item(struct fat_directory_item* item, int size) {
     struct fat_directory_item* item_copy = 0;
