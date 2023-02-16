@@ -147,3 +147,18 @@ out:
     }
     return res;
 }
+
+int fread(void* ptr, uint32_t size, uint32_t nmemb, int fd) {
+    int res = 0;
+    if (size == 0 || nmemb == 0 || fd < 1) {
+        return -EINVARG;
+    }
+
+    struct file_descriptor* descriptor = file_get_descriptor(fd);
+    if (!descriptor) {
+        return -EINVARG;
+    }
+
+    res = descriptor->filesystem->read(descriptor->disk, descriptor->private, size, nmemb, (char*) ptr);
+    return res;
+}
