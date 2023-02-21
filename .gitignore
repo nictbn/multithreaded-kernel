@@ -10,3 +10,4 @@ protected-mode/build/string/*.o
 protected-mode/build/fs/*.o
 protected-mode/build/fs/fat/*.o
 protected-mode/build/gdt/*.o
+protected-mode/build/task
