@@ -1,6 +1,8 @@
 {
     "files.associations": {
         "*.tcc": "c",
-        "algorithm": "c"
+        "algorithm": "c",
+        "status.h": "c",
+        "config.h": "c"
     }
 }
