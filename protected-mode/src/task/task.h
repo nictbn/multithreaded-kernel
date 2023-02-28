@@ -20,7 +20,7 @@ struct registers {
 };
 
 struct process;
-
+struct interrupt_frame;
 struct task {
     // the page directory of the task
     struct paging_4gb_chunk* page_directory;
@@ -48,4 +48,5 @@ void restore_general_purpose_registers(struct registers* registers);
 void user_registers();
 int task_switch(struct task* task);
 int task_page();
+void task_current_save_state(struct interrupt_frame* frame);
 #endif

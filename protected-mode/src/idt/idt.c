@@ -3,12 +3,15 @@
 #include "memory/memory.h"
 #include "kernel.h"
 #include "io/io.h"
+#include "task/task.h"
 struct idt_desc idt_descriptors[OS_TOTAL_INTERRUPTS];
 struct idtr_desc idtr_descriptor;
 
+static ISR80H_COMMAND isr80h_commands[OS_MAX_ISR80H_COMMANDS];
 extern void idt_load(struct idtr_desc* ptr);
 extern void int21h();
 extern void no_interrupt();
+extern void isr80h_wrapper();
 
 void int21h_handler() {
     print("\nKey pressed\n");
@@ -42,7 +45,42 @@ void idt_init() {
     }
     idt_set(0, idt_zero);
     idt_set(0x21, int21h);
+    idt_set(0x80, isr80h_wrapper);
 
     // load the interrupt descriptor table
     idt_load(&idtr_descriptor);
+}
+
+void isr80h_register_command(int command_id, ISR80H_COMMAND command) {
+    if (command_id <= 0 || command_id >= OS_MAX_ISR80H_COMMANDS) {
+        panic("The command is out of bounds\n");
+    }
+    if (isr80h_commands[command_id]) {
+        panic("You are attempting to override an existing command\n");
+    }
+
+    isr80h_commands[command_id] = command;
+}
+
+void* isr80h_handle_command(int command, struct interrupt_frame* frame) {
+    void* result = 0;
+    if (command <= 0 || command >= OS_MAX_ISR80H_COMMANDS) {
+        // invalid command
+        return 0;
+    }
+    ISR80H_COMMAND command_function = isr80h_commands[command];
+    if (!command_function) {
+        return 0;
+    }
+    result = command_function(frame);
+    return result;
+}
+
+void* isr80h_handler(int command, struct interrupt_frame* frame) {
+    void* res = 0;
+    kernel_page();
+    task_current_save_state(frame);
+    res = isr80h_handle_command(command, frame);
+    task_page();
+    return res;
 }
