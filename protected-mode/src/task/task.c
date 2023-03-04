@@ -174,3 +174,21 @@ out_free:
 out:
     return res;
 }
+
+int task_page_task(struct task* task) {
+    user_registers();
+    paging_switch(task->page_directory);
+    return 0;
+}
+
+void* task_get_stack_item(struct task* task, int index) {
+    void* result = 0;
+    uint32_t* stack_pointer = (uint32_t*) task->registers.esp;
+
+    // switch to the given task's page
+    task_page_task(task);
+    result = (void*) stack_pointer[index];
+    // switch back to the kernel page
+    kernel_page();
+    return result;
+}
