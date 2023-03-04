@@ -14,3 +14,4 @@ protected-mode/build/task
 protected-mode/programs/blank/*.bin
 protected-mode/programs/blank/build/*.o
 protected-mode/build/isr80h/*.o
+protected-mode/build/keyboard/*.o

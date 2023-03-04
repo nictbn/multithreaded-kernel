@@ -4,6 +4,7 @@
         "algorithm": "c",
         "status.h": "c",
         "config.h": "c",
-        "paging.h": "c"
+        "paging.h": "c",
+        "process.h": "c"
     }
 }
