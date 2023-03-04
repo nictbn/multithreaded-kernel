@@ -24,7 +24,7 @@ bool is_digit(char c) {
     return c >= 48 && c <= 57;
 }
 
-int to_numeruc_digit(char c) {
+int to_numeric_digit(char c) {
     return c - 48;
 }
 
@@ -41,7 +41,7 @@ char* strcpy(char* dest, const char* src) {
 
 char* strncpy(char* dest, const char* src, int count) {
     int i = 0;
-    for (int i = 0; i < count - 1; i++) {
+    for (i = 0; i < count - 1; i++) {
         if (src[i] == 0x00) {
             break;
         }
