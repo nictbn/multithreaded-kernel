@@ -4,4 +4,5 @@
 struct interrupt_frame;
 void* isr80h_command1_print(struct interrupt_frame* frame);
 void* isr80h_comand2_get_key(struct interrupt_frame* frame);
+void* isr80h_comand3_put_char(struct interrupt_frame* frame);
 #endif

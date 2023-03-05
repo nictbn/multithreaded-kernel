@@ -7,6 +7,7 @@ void kernel_main();
 void print(const char* str);
 void kernel_page();
 void kernel_registers();
+void terminal_write_char(char c, char colour);
 #define ERROR(value) (void*)(value)
 #define ERROR_I(value) (int)(value)
 #define ISERR(value) ((int)value < 0)
