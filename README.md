@@ -33,6 +33,15 @@ Debugging:\
 ```gdb```\
 ```target remote | qemu-system-x86_64 -hda ./boot.bin -S -gdb stdio```\
 
+## Utilities for inspecting elf files
+dumpelf can be installed through:\
+```sudo apt install pax-utils```\
+e.g.:\
+```dumpelf ./blank.elf```\
+readelf comes preinstalled with Ubuntu\
+e.g.:\
+```readelf -a ./blank.elf```
+
 ## Useful resources
 [Protected mode](https://wiki.osdev.org/Protected_Mode)\
 [Enabling the A20 Line](https://wiki.osdev.org/A20_Line)\

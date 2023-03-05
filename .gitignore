@@ -12,6 +12,7 @@ protected-mode/build/fs/fat/*.o
 protected-mode/build/gdt/*.o
 protected-mode/build/task
 protected-mode/programs/blank/*.bin
+protected-mode/programs/blank/*.elf
 protected-mode/programs/blank/build/*.o
 protected-mode/build/isr80h/*.o
 protected-mode/build/keyboard/*.o
