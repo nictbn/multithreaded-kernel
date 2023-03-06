@@ -10,7 +10,7 @@
 #include "config.h"
 
 
-const char* elf_signature[] = {0x7f, 'E', 'L', 'F'};
+const char elf_signature[] = {0x7f, 'E', 'L', 'F'};
 
 static bool elf_valid_signature(void* buffer) {
     return memcmp(buffer, (void*) elf_signature, sizeof(elf_signature)) == 0;
@@ -87,7 +87,7 @@ int elf_validate_loaded(struct elf_header* header) {
         elf_valid_class(header) && 
         elf_valid_encoding(header) && 
         elf_has_program_header(header)
-    ) ? OS_ALL_OK : -EINVARG;
+    ) ? OS_ALL_OK : -EINVFORMAT;
 }
 
 int elf_process_phdr_pt_load(struct elf_file* elf_file, struct elf32_phdr* phdr) {
@@ -111,9 +111,10 @@ int elf_process_pheader(struct elf_file* elf_file, struct elf32_phdr* phdr) {
         res = elf_process_phdr_pt_load(elf_file, phdr);
         break;
     }
+    return res;
 }
 
-int elf_process_pheader(struct elf_file* elf_file) {
+int elf_process_pheaders(struct elf_file* elf_file) {
     int res = 0;
     struct elf_header* header = elf_header(elf_file);
     for (int i = 0; i < header->e_phnum; i++) {
@@ -135,7 +136,7 @@ int elf_process_loaded(struct elf_file* elf_file) {
         goto out;
     }
 
-    res = process_pheaders(elf_file);
+    res = elf_process_pheaders(elf_file);
     if (res < 0) {
         goto out;
     }
@@ -155,7 +156,7 @@ int elf_load(const char* filename, struct elf_file** file_out) {
     fd = res;
     struct file_stat stat;
     res = fstat(fd, &stat);
-    if (res <= 0) {
+    if (res < 0) {
         goto out;
     }
     elf_file->elf_memory = kzalloc(stat.filesize);

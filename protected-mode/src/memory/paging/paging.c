@@ -80,6 +80,12 @@ void* paging_align_address(void* ptr) {
     return ptr;
 }
 
+void* paging_align_to_lower_page(void* address) {
+    uint32_t _addr = (uint32_t) address;
+    _addr -= (_addr % PAGING_PAGE_SIZE);
+    return (void*) _addr;
+}
+
 int paging_map(struct paging_4gb_chunk* directory, void* virt, void* phys, int flags) {
     if (((unsigned int)virt % PAGING_PAGE_SIZE) || ((unsigned int) phys % PAGING_PAGE_SIZE)) {
         return -EINVARG;

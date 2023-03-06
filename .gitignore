@@ -16,3 +16,4 @@ protected-mode/programs/blank/*.elf
 protected-mode/programs/blank/build/*.o
 protected-mode/build/isr80h/*.o
 protected-mode/build/keyboard/*.o
+protected-mode/build/loader/formats/*.o
