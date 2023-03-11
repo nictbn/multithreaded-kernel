@@ -2,6 +2,7 @@
 #include "stdlib.h"
 #include "stdio.h"
 int main (int argc, char** argv) {
+    printf("The meaning of life and everything is %i\n", 42);
     print("Hello, how are you?\n");
     print(itoa(8763));
     putchar('Z');
