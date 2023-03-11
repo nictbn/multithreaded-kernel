@@ -2,6 +2,7 @@
 
 global print:function
 global getkey:function
+global os_malloc:function
 print:
     push ebp
     mov ebp, esp
@@ -17,5 +18,15 @@ getkey:
     mov ebp, esp
     mov eax, 2
     int 0x80
+    pop ebp
+    ret
+
+os_malloc:
+    push ebp
+    mov ebp, esp
+    mov eax, 4
+    push dword[ebp + 8]
+    int 0x80
+    add esp, 4
     pop ebp
     ret
