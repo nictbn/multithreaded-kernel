@@ -1,5 +1,5 @@
-#ifndef STDLIB_H
-#define STDLIB_H
+#ifndef OS_STDLIB_H
+#define OS_STDLIB_H
 #include <stddef.h>
 
 void* malloc(size_t size);

@@ -1,8 +1,10 @@
 #include "os.h"
 #include "stdlib.h"
+#include "stdio.h"
 int main (int argc, char** argv) {
     print("Hello, how are you?\n");
     print(itoa(8763));
+    putchar('Z');
     void* ptr = malloc(512);
     free(ptr);
 
