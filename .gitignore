@@ -13,9 +13,12 @@ protected-mode/build/gdt/*.o
 protected-mode/build/task
 protected-mode/programs/blank/*.bin
 protected-mode/programs/blank/*.elf
+protected-mode/programs/blank/build/*.elf
 protected-mode/programs/blank/build/*.o
 protected-mode/build/isr80h/*.o
 protected-mode/build/keyboard/*.o
 protected-mode/build/loader/formats/*.o
 protected-mode/programs/stdlib/build/*.o
 protected-mode/programs/stdlib/build/*.elf
+protected-mode/programs/shell/build/*.o
+protected-mode/programs/shell/build/*.elf
