@@ -7,6 +7,7 @@ enum SystemCommands {
     SYSTEM_COMMAND2_GET_KEY,
     SYSTEM_COMMAND3_PUT_CHAR,
     SYSTEM_COMMAND4_MALLOC,
+    SYSTEM_COMMAND5_FREE,
 };
 
 void isr80h_register_commands();
