@@ -8,11 +8,10 @@ int main (int argc, char** argv) {
     putchar('Z');
     void* ptr = malloc(512);
     free(ptr);
-
-    while(1) {
-        if (getkey() != 0) {
-            print("Key was pressed!\n");
-        }
-    }
+    
+    char buf[1024];
+    os_terminal_readline(buf, sizeof(buf), true);
+    print(buf);
+    while(1) {}
     return 0;
 }
