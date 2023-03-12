@@ -5,12 +5,9 @@
 
 int main (int argc, char** argv) {
     printf("The meaning of life and everything is %i\n", 42);
-    char words[] = "hello how are you";
-    const char* token = strtok(words, " ");
-    while(token) {
-        printf("%s\n", token);
-        token = strtok(NULL, " ");
-    }
+    char* ptr = malloc(20);
+    strcpy(ptr, "hello world");
+    print(ptr);
     while(1) {}
     return 0;
 }
