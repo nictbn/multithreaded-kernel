@@ -25,4 +25,5 @@ struct command_argument* os_parse_command(const char* command, int max);
 void os_process_get_arguments(struct process_arguments* arguments);
 int os_system(struct command_argument* arguments);
 int os_system_run(const char* command);
+void peachos_exit();
 #endif
