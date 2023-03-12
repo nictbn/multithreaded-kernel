@@ -5,13 +5,10 @@
 
 int main (int argc, char** argv) {
     printf("The meaning of life and everything is %i\n", 42);
-    char* ptr = malloc(20);
-    strcpy(ptr, "hello world");
-    print(ptr);
-    free(ptr);
-
-    ptr[0] = 'B';
-    print("abc\n");
+    char str[] = "hello world";
+    struct command_argument* root_command = os_parse_command(str, sizeof(str));
+    printf("%s\n", root_command->argument);
+    printf("%s\n", root_command->next->argument);
     while(1) {}
     return 0;
 }
