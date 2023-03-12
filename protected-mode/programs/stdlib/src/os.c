@@ -4,11 +4,11 @@
 struct command_argument* os_parse_command(const char* command, int max) {
     struct command_argument* root_command = 0;
     char scommand[1024];
-    if (max >= sizeof(scommand)) {
+    if (max >= (int) sizeof(scommand)) {
         return 0;
     }
 
-    strncpy(scommand, command, sizeof(command));
+    strncpy(scommand, command, sizeof(scommand));
     char* token = strtok(scommand, " ");
     if (!token) {
         goto out;
@@ -23,11 +23,10 @@ struct command_argument* os_parse_command(const char* command, int max) {
 
     struct command_argument* current = root_command;
     token = strtok(NULL, " ");
-
     while(token != 0) {
         struct command_argument* new_command = os_malloc(sizeof(struct command_argument));
         if (!new_command) {
-            break;;
+            break;
         }
         strncpy(new_command->argument, token, sizeof(new_command->argument));
         new_command->next = 0x00;
