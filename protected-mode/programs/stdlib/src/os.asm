@@ -5,6 +5,7 @@ global os_getkey:function
 global os_malloc:function
 global os_free:function
 global os_putchar:function
+global os_process_load_start:function
 
 print:
     push ebp
@@ -48,6 +49,16 @@ os_putchar:
     push ebp
     mov ebp, esp
     mov eax, 3
+    push dword[ebp + 8]
+    int 0x80
+    add esp, 4
+    pop ebp
+    ret
+
+os_process_load_start:
+    push ebp
+    mov ebp, esp
+    mov eax, 6
     push dword[ebp + 8]
     int 0x80
     add esp, 4

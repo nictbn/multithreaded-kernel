@@ -9,6 +9,7 @@ int main(int argc, char** argv) {
         print(">");
         char buf[1024];
         os_terminal_readline(buf, sizeof(buf), true);
+        os_process_load_start(buf);
         print("\n");
     }
     return 0;
